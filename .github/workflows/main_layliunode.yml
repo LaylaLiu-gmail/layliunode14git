@@ -52,5 +52,5 @@ jobs:
       with:
         app-name: 'layliunode'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_129bbf84c4e84c98ab68fa628767e826 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_81670ae0e114444e8c094ce6ae17c881 }}
         package: .
