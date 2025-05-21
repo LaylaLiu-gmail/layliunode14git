@@ -9,7 +9,7 @@ resources:
     - repository: githubRepo
       type: github
       name: LaylaLiu-gmail/layliunode14git
-      endpoint: LaylaLiu-gmail
+      endpoint: github.com_LaylaLiu-gmail
 
 steps:
 - script: |
