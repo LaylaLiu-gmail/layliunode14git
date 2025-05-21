@@ -17,7 +17,7 @@ steps:
     echo "aa"
     dir
     git remote add github https://$(GITHUB_TOKEN)@github.com/LaylaLiu-gmail/layliunode14git.git
-    git remove -v
+    git remote -v
     git push github --all
     echo "cc"
     git push github --tags
