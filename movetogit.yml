@@ -6,7 +6,7 @@ pool:
 
 variables:
   GITHUB_USERNAME: 'LaylaLiu-gmail'
-  GITHUB_REPO: 'testmigration'    # The GitHub repository name (e.g., 'my-repo')
+  GITHUB_REPO: 'layliunode14git'    # The GitHub repository name (e.g., 'my-repo')
 
 steps:
 - script: |
@@ -15,9 +15,9 @@ steps:
 
     cd $(Build.SourcesDirectory)
     git log
-    git remote add github https://$(GITHUB_TOKEN)@github.com/LaylaLiu-gmail/testmigration.git
+    git remote add github https://$(GITHUB_TOKEN)@github.com/LaylaLiu-gmail/layliunode14git.git
     git remote -v
-    git push --mirror github
+    git push github --tags "refs/remotes/origin/*:refs/heads/*"
     git branch --all
     git push github --tags
     git branch --all
