@@ -17,6 +17,9 @@ steps:
     git config --global user.email 'azure-devops@devops.com'
   displayName: 'Set up Git'
 
+- checkout: self
+  persistCredentials: true
+
 - script: |
     cd $(Build.SourcesDirectory)
     git remote add github https://github.com/LaylaLiu-gmail/layliunode14git.git
