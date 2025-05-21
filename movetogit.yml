@@ -7,6 +7,8 @@ pool:
 variables:
   GITHUB_USERNAME: 'LaylaLiu-gmail'
   GITHUB_REPO: 'layliunode14git'    # The GitHub repository name (e.g., 'my-repo')
+  GITHUB_TOKEN: $(GITHUB_TOKEN)
+  CCC: ${AAA}
 
 steps:
 - script: |
@@ -14,7 +16,8 @@ steps:
     git config --global user.email 'azure-devops@devops.com'
 
     cd $(Build.SourcesDirectory)
-    echo "aa"
+    echo $(AAA)
+    echo ${{ variables.CCC }}
     git log
     git remote add github https://$(GITHUB_TOKEN)@github.com/LaylaLiu-gmail/layliunode14git.git
     git remote -v
