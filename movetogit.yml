@@ -22,8 +22,12 @@ steps:
 
 - script: |
     cd $(Build.SourcesDirectory)
+    echo "aa"
+    dir
     git remote add github https://github.com/LaylaLiu-gmail/layliunode14git.git
+    echo "bb"
     git push github --all
+    echo "cc"
     git push github --tags
   displayName: 'Push to GitHub'
   env:
