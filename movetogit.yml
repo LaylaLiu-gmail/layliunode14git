@@ -4,23 +4,14 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
-resources:
-  repositories:
-    - repository: githubRepo
-      type: github
-      name: LaylaLiu-gmail/layliunode14git
-      endpoint: github.com_LaylaLiu-gmail
+variables:
+  GITHUB_USERNAME: 'LaylaLiu-gmail'
+  GITHUB_REPO: 'layliunode14git'    # The GitHub repository name (e.g., 'my-repo')
 
-steps:
 - script: |
     git config --global user.name 'azure-devops'
     git config --global user.email 'azure-devops@devops.com'
-  displayName: 'Set up Git'
 
-- checkout: self
-  persistCredentials: true
-
-- script: |
     cd $(Build.SourcesDirectory)
     echo "aa"
     dir
@@ -31,5 +22,4 @@ steps:
     git push github --tags
   displayName: 'Push to GitHub'
   env:
-    GIT_ASKPASS: echo
-    GIT_TERMINAL_PROMPT: 0
+    GITHUB_TOKEN: $(GITHUB_TOKEN)
