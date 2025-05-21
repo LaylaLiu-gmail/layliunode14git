@@ -8,6 +8,7 @@ variables:
   GITHUB_USERNAME: 'LaylaLiu-gmail'
   GITHUB_REPO: 'layliunode14git'    # The GitHub repository name (e.g., 'my-repo')
 
+steps:
 - script: |
     git config --global user.name 'azure-devops'
     git config --global user.email 'azure-devops@devops.com'
