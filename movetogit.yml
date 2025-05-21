@@ -15,10 +15,12 @@ steps:
 
     cd $(Build.SourcesDirectory)
     echo "aa"
-    dir
+    git log
     git remote add github https://$(GITHUB_TOKEN)@github.com/LaylaLiu-gmail/layliunode14git.git
     git remote -v
+    git branch --all
     git push github --all
-    echo "cc"
+    git branch --all
     git push github --tags
+    git branch --all
   displayName: 'Push to GitHub'
