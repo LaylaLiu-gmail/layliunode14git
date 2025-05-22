@@ -62,7 +62,7 @@ steps:
     echo $(url)
     git remote add github $(url)
     git remote -v
-    git push github --tags "refs/remotes/origin/*:refs/heads/*"
+    git push github --tags "refs/remotes/origin/*:refs/heads/*" -f
   displayName: 'Push to GitHub'
   env:
     GIT_ASKPASS: echo
