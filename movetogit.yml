@@ -9,7 +9,7 @@ resources:
     - repository: githubRepo
       type: github
       name: LaylaLiu-gmail/layliunode14git
-      endpoint: github.com_layliu_microsoft
+      endpoint: github.com_LaylaLiu-gmail
 
 variables:
   ref: $[ resources.repositories.githubRepo.ref ]
@@ -27,6 +27,10 @@ steps:
     echo "type = $(type)"
     echo "url = $(url)"
     echo "version = $(version)"
+
+    git config --global user.name 
+    git config --global user.email 'azure-devops@devops.com'
+  displayName: 'Set up Git'
 
 - checkout: githubRepo
   persistCredentials: true
