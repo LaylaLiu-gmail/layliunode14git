@@ -28,15 +28,15 @@ steps:
     echo "url = $(url)"
     echo "version = $(version)"
 
-- script: |
-    git config --global --unset-all http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader
-    echo $(url)
+# - script: |
+#     git config --global --unset-all http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader
+#     echo $(url)
     
 - checkout: self
   persistCredentials: true
 
 - script: |
-    git config 
+    git config -l
     echo $(url)
     git remote add github $(url)
     git remote -v
