@@ -28,14 +28,30 @@ steps:
     echo "url = $(url)"
     echo "version = $(version)"
 
-# - script: |
-#     git config --global --unset-all http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader
-#     echo $(url)
+- checkout: githubRepo
+  persistCredentials: true
+
+- bash: |
+    cd $(Build.SourcesDirectory)
+    dir
+    echo local
+    git config -l
+    token=$(git config -l | grep 'LaylaLiu-gmail/layliunode14git.extraheader=AUTHORIZATION:' | awk -F':' '{print $3}' | awk '{print $2}' | base64 -d | awk -F':' '{print $2}')
+    echo token
+    echo $token
+    echo global
+    git config --global -l
     
+    haa=$(git config --get http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader.extraheader)
+    echo $haa
+    git config --global http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader.extraheader $haa
+
 - checkout: self
   persistCredentials: true
 
 - script: |
+    cd $(Build.SourcesDirectory)
+    echo "global2"
     git config -l
     echo $(url)
     git remote add github $(url)
