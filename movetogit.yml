@@ -59,5 +59,3 @@ steps:
     git push github --tags
     git branch --all
   displayName: 'Push to GitHub'
-
-  github.com_layliu_microsoft
