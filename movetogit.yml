@@ -56,6 +56,8 @@ steps:
 - script: |
     cd Samples
     echo "global2"
+    git config --global -l
+    echo "local2"
     git config -l
     echo $(url)
     git remote add github $(url)
