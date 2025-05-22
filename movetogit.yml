@@ -28,7 +28,6 @@ steps:
     echo "url = $(url)"
     echo "version = $(version)"
 
-steps:
 - script: |
     git config --global --unset-all http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader
     echo "url: $(resources.repositorie.githubRepo.url)"
@@ -47,7 +46,6 @@ steps:
   env:
     GIT_ASKPASS: /bin/echo
 
-steps:
 - script: |
     git config --global user.name 'azure-devops'
     git config --global user.email 'azure-devops@devops.com'
