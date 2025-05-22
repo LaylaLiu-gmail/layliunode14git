@@ -4,9 +4,48 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
+resources:
+  repositories:
+    - repository: githubRepo
+      type: github
+      name: LaylaLiu-gmail/layliunode14git
+      endpoint: github.com_layliu_microsoft
+
 variables:
-  GITHUB_USERNAME: 'LaylaLiu-gmail'
-  GITHUB_REPO: 'layliunode14git'    # The GitHub repository name (e.g., 'my-repo')
+  ref: $[ resources.repositories.githubRepo.ref ]
+  name: $[ resources.repositories.githubRepo.name ]
+  id: $[ resources.repositories.githubRepo.id ]
+  type: $[ resources.repositories.githubRepo.type ]
+  url: $[ resources.repositories.githubRepo.url ]
+  version: $[ resources.repositories.githubRepo.version ]
+
+steps:
+- bash: |
+    echo "name = $(name)"
+    echo "ref = $(ref)"
+    echo "id = $(id)"
+    echo "type = $(type)"
+    echo "url = $(url)"
+    echo "version = $(version)"
+
+steps:
+- script: |
+    git config --global --unset-all http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader
+    echo "url: $(resources.repositorie.githubRepo.url)"
+    echo "url: $(github.com_layliu_microsoft.)"
+    
+- checkout: self
+  persistCredentials: true
+
+- script: |
+    git config 
+    echo $(resources.repositories.githubRepo.url)
+    git remote add github $(resources.repositories.githubRepo.url)
+    git remote -v
+    git push github "refs/remotes/origin/user/layliu/AllArc:user/layliu/AllArc"
+  displayName: 'Push to GitHub'
+  env:
+    GIT_ASKPASS: /bin/echo
 
 steps:
 - script: |
@@ -22,3 +61,5 @@ steps:
     git push github --tags
     git branch --all
   displayName: 'Push to GitHub'
+
+  github.com_layliu_microsoft
