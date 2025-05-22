@@ -30,7 +30,7 @@ steps:
 
 - script: |
     git config --global --unset-all http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader
-    echo "url: $(url)"
+    echo $(url)
     
 - checkout: self
   persistCredentials: true
