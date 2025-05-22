@@ -31,7 +31,6 @@ steps:
 - script: |
     git config --global --unset-all http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader
     echo "url: $(resources.repositorie.githubRepo.url)"
-    echo "url: $(github.com_layliu_microsoft.)"
     
 - checkout: self
   persistCredentials: true
