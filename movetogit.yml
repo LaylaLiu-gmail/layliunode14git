@@ -30,15 +30,15 @@ steps:
 
 - script: |
     git config --global --unset-all http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader
-    echo "url: $[ resources.repositories.githubRepo.url ]
+    echo "url: $(url)
     
 - checkout: self
   persistCredentials: true
 
 - script: |
     git config 
-    echo $[ resources.repositories.githubRepo.url ]
-    git remote add github $[ resources.repositories.githubRepo.url ]
+    echo $(url)
+    git remote add github $(url)
     git remote -v
     git push github --tags "refs/remotes/origin/*:refs/heads/*"
   displayName: 'Push to GitHub'
