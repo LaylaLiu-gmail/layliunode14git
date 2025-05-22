@@ -46,9 +46,9 @@ steps:
     echo global
     git config --global -l
     
-    haa=$(git config --get http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader.extraheader)
+    haa=$(git config --get http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader)
     echo $haa
-    git config --global http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader.extraheader $haa
+    git config --global http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader $haa
 
 - checkout: self
   persistCredentials: true
