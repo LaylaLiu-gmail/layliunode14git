@@ -32,7 +32,7 @@ steps:
   persistCredentials: true
 
 - bash: |
-    cd $(Build.SourcesDirectory)
+    cd layliunode14git
     dir
     echo local
     git config -l
@@ -50,7 +50,7 @@ steps:
   persistCredentials: true
 
 - script: |
-    cd $(Build.SourcesDirectory)
+    cd Samples
     echo "global2"
     git config -l
     echo $(url)
