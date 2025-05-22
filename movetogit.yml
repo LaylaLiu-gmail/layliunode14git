@@ -30,31 +30,31 @@ steps:
 
 - script: |
     git config --global --unset-all http.https://github.com/LaylaLiu-gmail/layliunode14git.extraheader
-    echo "url: $(resources.repositorie.githubRepo.url)"
+    echo "url: $[ resources.repositories.githubRepo.url ]
     
 - checkout: self
   persistCredentials: true
 
 - script: |
     git config 
-    echo $(resources.repositories.githubRepo.url)
-    git remote add github $(resources.repositories.githubRepo.url)
+    echo $[ resources.repositories.githubRepo.url ]
+    git remote add github $[ resources.repositories.githubRepo.url ]
     git remote -v
-    git push github "refs/remotes/origin/user/layliu/AllArc:user/layliu/AllArc"
+    git push github --tags "refs/remotes/origin/*:refs/heads/*"
   displayName: 'Push to GitHub'
   env:
     GIT_ASKPASS: /bin/echo
 
-- script: |
-    git config --global user.name 'azure-devops'
-    git config --global user.email 'azure-devops@devops.com'
+# - script: |
+#     git config --global user.name 'azure-devops'
+#     git config --global user.email 'azure-devops@devops.com'
 
-    cd $(Build.SourcesDirectory)
-    git log
-    git remote add github https://$(GITHUB_TOKEN)@github.com/LaylaLiu-gmail/layliunode14git.git
-    git remote -v
-    git push github --tags "refs/remotes/origin/*:refs/heads/*"
-    git branch --all
-    git push github --tags
-    git branch --all
-  displayName: 'Push to GitHub'
+#     cd $(Build.SourcesDirectory)
+#     git log
+#     git remote add github https://$(GITHUB_TOKEN)@github.com/LaylaLiu-gmail/layliunode14git.git
+#     git remote -v
+#     git push github --tags "refs/remotes/origin/*:refs/heads/*"
+#     git branch --all
+#     git push github --tags
+#     git branch --all
+#   displayName: 'Push to GitHub'
