@@ -43,7 +43,7 @@ steps:
     git push github --tags "refs/remotes/origin/*:refs/heads/*"
   displayName: 'Push to GitHub'
   env:
-    GIT_ASKPASS: /bin/echo
+    GIT_ASKPASS: echo
 
 # - script: |
 #     git config --global user.name 'azure-devops'
