@@ -28,5 +28,5 @@ jobs:
               owner,
               repo,
               issue_number: ${{ github.event.pull_request.number }},
-              body: "/AzurePipelines run"
+              body: "Please add '/azp run' comment to your PR to trigger pull request validation"
             });
