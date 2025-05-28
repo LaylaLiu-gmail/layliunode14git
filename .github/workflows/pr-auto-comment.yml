@@ -23,10 +23,10 @@ jobs:
         with:
           github-token: ${{ steps.generate-token.outputs.token }}
           script: |
-            const { repo: { owner, repo } } = context;
+            const { issue: { number: issue_number }, repo: { owner, repo } } = context;
             github.rest.issues.createComment({
               owner,
               repo,
-              issue_number: ${{ github.event.pull_request.number }},
+              issue_number,
               body: 'Please add "/azp run" comment to your PR to trigger pull request validation'
             });

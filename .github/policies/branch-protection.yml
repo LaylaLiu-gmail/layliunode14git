@@ -1,0 +1,22 @@
+# Documentation for branch policy: https://aka.ms/gim/docs/policy/branch-protection
+
+name: Default branch protection policy
+description: Requires two reviewers for merges into main branch
+resource: repository
+where:
+configuration:
+  branchProtectionRules:
+    - branchNamePattern: "samples"
+      requiredApprovingReviewsCount: 0
+      restrictsPushes: true
+      requireLastPushApproval: true
+      requiresConversationResolution: true
+      requiresPullRequestBeforeMerging: true
+      dismissStaleReviews: true
+      allowsForcePushes: true
+      isAdminEnforced: true
+      whoCanPush:
+      - k4appscore
+      - LaylaLiu-gmail
+      requiredStatusChecks:
+      - Samples PR build
