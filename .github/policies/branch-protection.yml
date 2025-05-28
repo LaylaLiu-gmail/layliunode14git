@@ -19,4 +19,4 @@ configuration:
       - k4appscore
       - LaylaLiu-gmail
       requiredStatusChecks:
-      - Samples PR build
+      - Azure Pipelines / Samples PR build
