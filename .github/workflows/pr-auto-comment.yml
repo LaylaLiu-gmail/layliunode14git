@@ -12,10 +12,16 @@ jobs:
       issues: write
       pull-requests: write
     steps:
+      - name: Generate a token
+        id: generate-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
       - name: Add comment
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.SREAGENTSECRET }}
+          github-token: ${{ steps.generate-token.outputs.token }}
           script: |
             const { repo: { owner, repo } } = context;
             github.rest.issues.createComment({
