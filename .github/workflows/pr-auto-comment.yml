@@ -15,7 +15,7 @@ jobs:
       - name: Add comment
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.SREAGENTSECRET }}
           script: |
             const { repo: { owner, repo } } = context;
             github.rest.issues.createComment({
